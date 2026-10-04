@@ -1,6 +1,6 @@
 {
   "name": "jump-list",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Indexes a sorted linked list with skip pointers to support logarithmic search and insertion.",
   "type": "module",
   "main": "src/index.js",
