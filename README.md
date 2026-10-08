@@ -38,3 +38,10 @@ Methods:
 ## Awkward edges
 
 Duplicates are allowed and kept stable relative to insertion order; `delete` removes the oldest equal value first. The comparator defines equality, so passing inconsistent comparators across calls will silently corrupt ordering — the list does not re-sort retroactively. Skip pointers are rebuilt on growth past `2 * length` and on shrinkage below `length / 2`, so a burst of deletes can trigger a rebuild pass; if you delete in a tight loop, expect occasional O(n) pauses.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
